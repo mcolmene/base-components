@@ -179,6 +179,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', end
   -moz-transition: all 0.2s linear;
   /* -webkit-transition: all 0.2s linear;*/
 }
+/*Menu css*/
+.foodType {
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  color: black !important;
+}
+
+
 /*Footer*/
 .footer {
   width: 100%;

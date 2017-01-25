@@ -26,7 +26,12 @@ module.exports = {
  			 test : /\.jsx?/,
  			 include : [APP_DIR,IMP_DIR],
  			 loader : 'babel'
- 		 }
+ 		 },
+     {
+       test: /\.js$/,
+       exclude: /node_modules/,
+       loader: 'babel'
+     }
     ]
   }
 }
