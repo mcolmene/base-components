@@ -1,18 +1,18 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var APP_DIR = path.resolve(__dirname, 'app');
-var IMP_DIR = path.resolve(__dirname, 'app/imports');
+var APP_DIR = path.resolve(__dirname, 'src');
+var IMP_DIR = path.resolve(__dirname, 'src/components');
 
 module.exports = {
-  entry: './app/main.js',
+  entry: './src/index.js',
   output: {
-    path: './app',
+    path: './src',
     filename: 'bundle.js'
   },
   devServer: {
     inline: true,
-    contentBase: './app',
+    contentBase: './src',
     port: 8100
   },
   module: {
