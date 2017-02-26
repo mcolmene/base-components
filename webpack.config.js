@@ -1,8 +1,9 @@
-var webpack = require('webpack');
-var path = require('path');
+let webpack = require('webpack');
+let path = require('path');
 
-var APP_DIR = path.resolve(__dirname, 'src');
-var IMP_DIR = path.resolve(__dirname, 'src/components');
+let APP_DIR = path.resolve(__dirname, 'src');
+let IMP_DIR = path.resolve(__dirname, 'src/components');
+let BUILD_DIR = path.resolve(__dirname, 'build');
 
 module.exports = {
   entry: './src/index.js',
@@ -24,7 +25,11 @@ module.exports = {
       },
       {
  			 test : /\.jsx?/,
- 			 include : [APP_DIR,IMP_DIR],
+ 			 include : [
+ 			     APP_DIR,
+           IMP_DIR,
+           BUILD_DIR
+       ],
  			 loader : 'babel'
  		 },
      {
