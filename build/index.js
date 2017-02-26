@@ -4,15 +4,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Button = require('./components/Button.jsx');
+var _Button = require('./components/Button.js');
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _DetailsBlock = require('./components/DetailsBlock.jsx');
+var _DetailsBlock = require('./components/DetailsBlock.js');
 
 var _DetailsBlock2 = _interopRequireDefault(_DetailsBlock);
 
-var _Footer = require('./components/Footer.jsx');
+var _Footer = require('./components/Footer.js');
 
 var _Footer2 = _interopRequireDefault(_Footer);
 

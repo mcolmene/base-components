@@ -38,5 +38,9 @@ module.exports = {
        loader: 'babel'
      }
     ]
+  },
+  resolve: {
+      root: path.resolve('./src'),
+      extensions: ['', '.js', '.jsx', '.scss']
   }
 }
