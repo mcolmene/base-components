@@ -1,9 +1,13 @@
-import React from 'react'
+/*
+*  Created by Martin Colmenero 2/27/17
+* */
 
-export default class DetailsBlock extends React.Component {
+import React, { PropTypes, Component} from 'react'
+
+export default class DetailsBlock extends Component {
   render() {
     return (
-      <div className= {this.props.style}>
+      <div className="feature-div center">
         <div>
           <img className="feature-img" src={this.props.imageSrc}/>
         </div>
@@ -13,3 +17,14 @@ export default class DetailsBlock extends React.Component {
     )
   }
 }
+DetailsBlock.defaultProps = {
+  details: "Some details of this features are...",
+  feature: "(enter a feature) ",
+  imageSrc: '#',
+};
+
+DetailsBlock.propTypes = {
+  details: PropTypes.string,
+  feature: PropTypes.string,
+  imageSrc: PropTypes.string,
+};
