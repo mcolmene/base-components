@@ -4,23 +4,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Button = require('./components/Button');
+var _Button = require('./Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _DetailsBlock = require('./components/DetailsBlock');
+var _DetailsBlock = require('./DetailsBlock');
 
 var _DetailsBlock2 = _interopRequireDefault(_DetailsBlock);
 
-var _Footer = require('./components/Footer');
+var _Footer = require('./Footer');
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
-var _ImageSection = require('./components/ImageSection');
+var _ImageSection = require('./ImageSection');
 
 var _ImageSection2 = _interopRequireDefault(_ImageSection);
 
-var _ImageTextOverlay = require('./components/ImageTextOverlay');
+var _ImageTextOverlay = require('./ImageTextOverlay');
 
 var _ImageTextOverlay2 = _interopRequireDefault(_ImageTextOverlay);
 

@@ -1,8 +1,8 @@
-import Button from './components/Button';
-import DetailsBlock from './components/DetailsBlock';
-import Footer from './components/Footer';
-import ImageSection from './components/ImageSection';
-import ImageTextOverlay from './components/ImageTextOverlay';
+import Button from './Button';
+import DetailsBlock from './DetailsBlock';
+import Footer from './Footer';
+import ImageSection from './ImageSection';
+import ImageTextOverlay from './ImageTextOverlay';
 
 const components =  {
   Button,
