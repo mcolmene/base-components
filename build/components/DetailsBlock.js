@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -30,25 +30,39 @@ var DetailsBlock = function (_Component) {
   }
 
   _createClass(DetailsBlock, [{
-    key: "render",
+    key: 'render',
     value: function render() {
+      var featureDiv = {
+        borderRadius: '5px',
+        margin: '30px 0px',
+        minHeight: '200px'
+      };
+      var featureImg = {
+        width: '80px',
+        height: '80px'
+      };
+      var _props = this.props,
+          imageSrc = _props.imageSrc,
+          feature = _props.feature,
+          details = _props.details;
+
       return _react2.default.createElement(
-        "div",
-        { className: "feature-div center" },
+        'div',
+        { className: featureDiv + ' center' },
         _react2.default.createElement(
-          "div",
+          'div',
           null,
-          _react2.default.createElement("img", { className: "feature-img", src: this.props.imageSrc })
+          _react2.default.createElement('img', { className: '' + featureImg, src: imageSrc })
         ),
         _react2.default.createElement(
-          "h3",
+          'h3',
           null,
-          this.props.feature
+          feature
         ),
         _react2.default.createElement(
-          "p",
+          'p',
           null,
-          this.props.details
+          details
         )
       );
     }

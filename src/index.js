@@ -1,12 +1,15 @@
-import Button from './components/Button.jsx';
-import DetailsBlock from './components/DetailsBlock.jsx';
-import Footer from './components/Footer.jsx';
-
+import Button from './components/Button';
+import DetailsBlock from './components/DetailsBlock';
+import Footer from './components/Footer';
+import ImageSection from './components/ImageSection';
+import ImageTextOverlay from './components/ImageTextOverlay';
 
 const components =  {
-    Button,
-    DetailsBlock,
-    Footer
+  Button,
+  DetailsBlock,
+  Footer,
+  ImageSection,
+  ImageTextOverlay
 };
 
 export default components;
