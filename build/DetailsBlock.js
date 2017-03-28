@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _DetailsBlock = require('./static/DetailsBlock.css');
+
+var _DetailsBlock2 = _interopRequireDefault(_DetailsBlock);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32,27 +36,21 @@ var DetailsBlock = function (_Component) {
   _createClass(DetailsBlock, [{
     key: 'render',
     value: function render() {
-      var featureDiv = {
-        borderRadius: '5px',
-        margin: '30px 0px',
-        minHeight: '200px'
-      };
-      var featureImg = {
-        width: '80px',
-        height: '80px'
-      };
       var _props = this.props,
-          imageSrc = _props.imageSrc,
+          details = _props.details,
           feature = _props.feature,
-          details = _props.details;
+          featureDivStyles = _props.featureDivStyles,
+          featureImgStyles = _props.featureImgStyles,
+          imageSrc = _props.imageSrc;
+
 
       return _react2.default.createElement(
         'div',
-        { className: featureDiv + ' center' },
+        { className: _DetailsBlock2.default.featureDiv + ' ' + featureDivStyles + ' center' },
         _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement('img', { className: '' + featureImg, src: imageSrc })
+          _react2.default.createElement('img', { className: _DetailsBlock2.default.featureImg + ' ' + featureImgStyles, src: imageSrc })
         ),
         _react2.default.createElement(
           'h3',
@@ -74,9 +72,12 @@ var DetailsBlock = function (_Component) {
 exports.default = DetailsBlock;
 
 DetailsBlock.defaultProps = {
-  details: "Some details of this features are...",
-  feature: "(enter a feature) ",
+  details: 'Some details of this features are...',
+  feature: '(enter a feature) ',
+  featureDivStyles: '',
+  featureImgStyles: '',
   imageSrc: '#'
+
 };
 
 DetailsBlock.propTypes = {

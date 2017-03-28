@@ -24,6 +24,10 @@ var _ImageTextOverlay = require('./ImageTextOverlay');
 
 var _ImageTextOverlay2 = _interopRequireDefault(_ImageTextOverlay);
 
+var _LoadingSpinner = require('./LoadingSpinner');
+
+var _LoadingSpinner2 = _interopRequireDefault(_LoadingSpinner);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var components = {
@@ -31,7 +35,8 @@ var components = {
   DetailsBlock: _DetailsBlock2.default,
   Footer: _Footer2.default,
   ImageSection: _ImageSection2.default,
-  ImageTextOverlay: _ImageTextOverlay2.default
+  ImageTextOverlay: _ImageTextOverlay2.default,
+  LoadingSpinner: _LoadingSpinner2.default
 };
 
 exports.default = components;

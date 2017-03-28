@@ -3,23 +3,22 @@
 * */
 
 import React, { PropTypes, Component} from 'react'
+import styles from './static/DetailsBlock.css'
 
 export default class DetailsBlock extends Component {
   render() {
-    const featureDiv = {
-      borderRadius: '5px',
-      margin: '30px 0px',
-      minHeight: '200px'
-    };
-    const featureImg = {
-      width: '80px',
-      height: '80px'
-    };
-    const { imageSrc, feature, details } = this.props;
+    const {
+      details,
+      feature,
+      featureDivStyles,
+      featureImgStyles,
+      imageSrc
+    } = this.props;
+
     return (
-      <div className={`${featureDiv} center`}>
+      <div className={`${styles.featureDiv} ${featureDivStyles} center`}>
         <div>
-          <img className={`${featureImg}`} src={imageSrc}/>
+          <img className={`${styles.featureImg} ${featureImgStyles}`} src={imageSrc}/>
         </div>
         <h3>{feature}</h3>
         <p>{details}</p>
@@ -28,9 +27,12 @@ export default class DetailsBlock extends Component {
   }
 }
 DetailsBlock.defaultProps = {
-  details: "Some details of this features are...",
-  feature: "(enter a feature) ",
+  details: 'Some details of this features are...',
+  feature: '(enter a feature) ',
+  featureDivStyles: '',
+  featureImgStyles:'',
   imageSrc: '#',
+
 };
 
 DetailsBlock.propTypes = {
