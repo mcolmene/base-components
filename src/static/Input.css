@@ -1,7 +1,7 @@
-.inputContainer div:focus {
+.inputContainerDefault1 div:focus {
   outline: 0 none;
 }
-.inputContainer label {
+.inputContainerDefault1 label {
   left: 0;
   right: auto;
   -webkit-transform-origin: left top;
@@ -23,7 +23,7 @@
   font-size: 20px;
 
 }
-.inputContainer input {
+.inputContainerDefault1 input {
   border: 0 !important;
   border-bottom: 2px solid #e0e0e0 !important;
   font-size: 20px;
@@ -32,11 +32,56 @@
   box-shadow: 0 0 0 1000px #FFF inset!important;
 }
 
-.inputContainer input:focus {
+.inputContainerDefault1 input:focus {
   border-bottom: 2px solid #5bc0de !important;
   transition: border-bottom 0.3s linear;
   outline: 0 none;
 }
+
+
+.inputContainerDefault2 div:focus {
+  outline: 0 none;
+}
+.inputContainerDefault2 label {
+  left: 0;
+  right: auto;
+  -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top;
+  bottom: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  -ms-flex-order: 1;
+  order: 1;
+  -webkit-transform: translate3d(0,44px,0) scale(1);
+  transform: translate3d(0,44px,0) scale(1);
+  transition: -webkit-transform .4s cubic-bezier(.25,.8,.25,1);
+  transition: transform .4s cubic-bezier(.25,.8,.25,1);
+  max-width: 100%;
+  font-size: 20px;
+  padding-left: 10px;
+
+}
+.inputContainerDefault2 input {
+  border-bottom: 2px solid #e0e0e0 !important;
+  font-size: 20px;
+  height: 43px !important;
+  outline: 0 none;
+  width: 100%;
+  box-shadow: 0 0 0 1000px #FFF inset!important;
+}
+
+.inputContainerDefault2 input:focus {
+  border-bottom: 2px solid #5bc0de !important;
+  transition: border-bottom 0.3s linear;
+  outline: 0 none;
+}
+
+
+
 .transform{
   transform: translate3d(0, 15px, 0) scale(.75) !important;
 }
+

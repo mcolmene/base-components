@@ -32,19 +32,26 @@ export default class Form extends Component {
    }
   createFormInput(stateObject, key, index) {
     let content;
-    switch(stateObject.inputType) {
+    const {
+      type,
+      size,
+      className,
+      options
+  } = stateObject;
+
+    switch(type) {
       case 'select': {
         content = (
-          <Col key={`${key}Div`} sm={11} md={12} className="pad-lr-4 margin-tb-4">
+          <Col key={`${key}Div`} xs={size || 12} className="margin-tb-3">
             <select
               name={key}
               ref={(select) => {this.key = select}}
-              className="form-control"
+              className={`form-control ${className}`.trim()}
               onChange={this.handleChange}
               value={this.state[key].value}
             >
               {
-                stateObject.options.map((option, index) => (
+                options.map((option, index) => (
                   <option key={`option${index}`} value={option}>{option}</option>
                 ))
               }
@@ -55,14 +62,14 @@ export default class Form extends Component {
       }
       case 'input': {
         content = (
-          <Col key={`${key}Div`} sm={12} className="pad-lr-4">
+          <Col key={`${key}Div`} xs={size || 12}>
             <label className={this.state[`${key}Label`]}>{key}</label>
             <input
               key={`input${index}`}
               ref={(input) => {this.key = input}}
               type="text"
               name={key}
-              className=""
+              className={className}
               value={this.state[key].value}
               onChange={this.handleChange}
               onFocus={this.handleFocus}
@@ -79,12 +86,32 @@ export default class Form extends Component {
     }
     return content;
   }
+  getFormStyle(styleNumber) {
+    let style;
+    switch (styleNumber) {
+      case 1 : {
+        style = styles['inputContainerDefault1'];
+        break;
+      }
+      case 2: {
+        style = styles['inputContainerDefault2'];
+        break;
+      }
+      default: {
+        style = styles['inputContainerDefault1'];
+      }
+    }
+    return style;
+}
   render() {
     const {
       formStyle,
       inputObject
     } = this.props;
-    const inputStyles = formStyle || styles['inputContainer'];
+
+    const inputStyles = ( formStyle && typeof formStyle === 'string')
+      ? styles[formStyle]
+      : this.getFormStyle(formStyle);
 
     const inputs = (
       Object.keys(inputObject).map((key, index) => {

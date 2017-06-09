@@ -9,27 +9,34 @@ import LoadingSpinner from './src/LoadingSpinner';
 import Form from './src/Form';
 
 import './src/static/global-styles.css'
+import styles from './src/static/Input.css';
 
 const props = {
   inputObject : {
     item: {
       value:'',
-      inputType: 'input'
+      type: 'input',
+      className: 'form-control',
     },
     itemLabel: '',
     amount: {
       value:'',
-      inputType: 'input'
+      type: 'input',
+      className: 'form-control',
+
     },
     amountLabel: '',
     description: {
       value:'',
-      inputType: 'input'
+      type: 'input',
+      size: '6',
+      className: 'form-control',
     },
     descriptionLabel: '',
     user: {
       value: 'Select',
-      inputType: 'select',
+      type: 'select',
+      size: '6',
       options: [
         'Select',
         '1',
@@ -38,7 +45,8 @@ const props = {
     },
     state: {
       value: 'Choose State',
-      inputType: 'select',
+      type: 'select',
+      size: '6',
       options: [
         'Choose State',
         'AZ',
@@ -48,8 +56,6 @@ const props = {
   }
 };
 function validation(inputValue, inputName) {
-  console.log(inputName);
-  console.log(inputValue);
   switch (inputName){
     case 'item':
       if(inputValue.length < 5) {
@@ -60,8 +66,9 @@ function validation(inputValue, inputName) {
 }
 // Render example of base-components, one of each should be rendered inside the list
 render(
-  <div style={{width:200}}>
+  <div className="container">
     <Form
+      formStyle={2}
       handleValidation={validation}
       {...props}
     />
