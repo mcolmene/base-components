@@ -4,6 +4,7 @@ import Footer from './Footer';
 import ImageSection from './ImageSection';
 import ImageTextOverlay from './ImageTextOverlay';
 import LoadingSpinner from './LoadingSpinner';
+import Form from './Form';
 
 const components =  {
   Button,
@@ -11,7 +12,8 @@ const components =  {
   Footer,
   ImageSection,
   ImageTextOverlay,
-  LoadingSpinner
+  LoadingSpinner,
+  Form
 };
 
 export default components;
