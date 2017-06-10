@@ -55,6 +55,7 @@
   width: 100%;
   -ms-flex-order: 1;
   order: 1;
+  pointer-events: none;
   -webkit-transform: translate3d(0,44px,0) scale(1);
   transform: translate3d(0,44px,0) scale(1);
   transition: -webkit-transform .4s cubic-bezier(.25,.8,.25,1);

@@ -28,6 +28,10 @@ var _LoadingSpinner = require('./LoadingSpinner');
 
 var _LoadingSpinner2 = _interopRequireDefault(_LoadingSpinner);
 
+var _Form = require('./Form');
+
+var _Form2 = _interopRequireDefault(_Form);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var components = {
@@ -36,7 +40,8 @@ var components = {
   Footer: _Footer2.default,
   ImageSection: _ImageSection2.default,
   ImageTextOverlay: _ImageTextOverlay2.default,
-  LoadingSpinner: _LoadingSpinner2.default
+  LoadingSpinner: _LoadingSpinner2.default,
+  Form: _Form2.default
 };
 
 exports.default = components;
