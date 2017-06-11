@@ -73,6 +73,7 @@
   outline: 0 none;
   width: 100%;
   box-shadow: 0 0 0 1000px #FFF inset!important;
+  padding-left: 8px !important;
 }
 
 .inputContainerDefault2 input:focus {
@@ -80,8 +81,6 @@
   transition: border-bottom 0.3s linear;
   outline: 0 none;
 }
-
-
 
 .transform{
   transform: translate3d(0, 15px, 0) scale(.75) !important;
