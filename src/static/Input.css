@@ -66,7 +66,8 @@
 
 }
 .inputContainerDefault2 input {
-  border-bottom: 2px solid #e0e0e0 !important;
+  border: 2px solid #e0e0e0 !important;
+  border-radius: 5px;
   font-size: 20px;
   height: 43px !important;
   outline: 0 none;
