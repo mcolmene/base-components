@@ -7,48 +7,77 @@ export default class Form extends Component {
   constructor(props) {
     super(props);
     const inputObj = props.inputObject;
-    this.state = inputObj;
+    const errorsObj = {};
+    const errors = {};
+    const keys = Object.keys(props.inputObject);
+    keys.map((key) => {
+      if (!key.includes('Label')) {
+        errorsObj[key] = '';
+      }
+    })
+    this.state = {
+      inputObj,
+      errorsObj,
+      errors
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
   }
   handleChange(event) {
-   const newObj = {
-    value : event.target.value
-   };
-   const mergedObj = Object.assign({}, this.state[event.target.name], newObj);
-   this.setState({ [event.target.name]: mergedObj });
+   const obj = Object.assign({}, this.state);
+   obj.inputObj[event.target.name].value = event.target.value;
+   this.setState({ obj });
    }
    handleFocus(event) {
+    let obj = Object.assign({}, this.state.inputObj)
    const label = event.target.name + 'Label';
-   this.setState({ [label]: styles.transform });
+    obj[label] = styles.transform
+   this.setState({ inputObj: obj });
    }
    handleBlur(event) {
-     if(this.state[event.target.name].value.length === 0) {
-       const label = event.target.name + 'Label';
-       this.setState({[label]: ''});
+    const name = event.target.name;
+     if(this.state.inputObj[name].value.length === 0) {
+       let obj = Object.assign({}, this.state)
+       const label = name + 'Label';
+       obj.inputObj[label] = ''
+       const status = this.props.handleValidation(this.state.inputObj[name].value, name);
+       obj.errorsObj[name] = status;
+       this.setState({ obj });
+     } else {
+       let obj = Object.assign({}, this.state)
+       const status = this.props.handleValidation(this.state.inputObj[name].value, name);
+       obj.errorsObj[name] = status;
+       this.setState({ obj });
      }
-     this.props.handleValidation(this.state[event.target.name].value, event.target.name);
+
    }
   createFormInput(stateObject, key, index) {
     let content;
     const {
       type,
-      size,
-      className,
       options
-  } = stateObject;
+    } = stateObject;
+    let {
+      size,
+      className
+    } = stateObject;
 
+    size = (size) ? size : { xs: 12};
+    className = (className) ? className : '';
+    const {
+      inputObj
+    } = this.state;
     switch(type) {
       case 'select': {
         content = (
-          <Col key={`${key}Div`} xs={size || 12} className="margin-tb-3">
+          <Col key={`${key}Div`} {...size} className="margin-tb-3">
             <select
               name={key}
-              ref={(select) => {this.key = select}}
+              ref={(select) => {this[`${key}_ref`] = select}}
               className={`form-control ${className}`.trim()}
               onChange={this.handleChange}
-              value={this.state[key].value}
+              value={inputObj[key].value}
             >
               {
                 options.map((option, index) => (
@@ -62,15 +91,15 @@ export default class Form extends Component {
       }
       case 'input': {
         content = (
-          <Col key={`${key}Div`} xs={size || 12}>
-            <label className={this.state[`${key}Label`]}>{key}</label>
+          <Col key={`${key}Div`} {...size}>
+            <label className={inputObj[`${key}Label`]}>{key}</label>
             <input
               key={`input${index}`}
-              ref={(input) => {this.key = input}}
+              ref={(input) => {this[`${key}_ref`] = input}}
               type="text"
               name={key}
-              className={className}
-              value={this.state[key].value}
+              className={`${className} ${this.state.errorsObj[key]}`}
+              value={this.state.inputObj[key].value}
               onChange={this.handleChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
@@ -139,7 +168,7 @@ Form.defaultProps ={
 };
 
 Form.propTypes = {
-  formStyle: PropTypes.bool,
+  formStyle: PropTypes.oneOfType(PropTypes.bool, PropTypes.number),
   inputObject: PropTypes.object,
   handleValidation: PropTypes.func
 };

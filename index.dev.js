@@ -1,15 +1,13 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap/lib'
 import { render } from 'react-dom';
 
-import DetailsBlock from './src/DetailsBlock';
-import ImageSection from './src/ImageSection';
-import ImageTextOverlay from './src/ImageTextOverlay';
-import LoadingSpinner from './src/LoadingSpinner';
+// import DetailsBlock from './src/DetailsBlock';
+// import ImageSection from './src/ImageSection';
+// import ImageTextOverlay from './src/ImageTextOverlay';
+// import LoadingSpinner from './src/LoadingSpinner';
 import Form from './src/Form';
 
 import './src/static/global-styles.css'
-import styles from './src/static/Input.css';
 
 const props = {
   inputObject : {
@@ -29,14 +27,15 @@ const props = {
     description: {
       value:'',
       type: 'input',
-      size: '6',
       className: 'form-control',
     },
     descriptionLabel: '',
     user: {
       value: 'Select',
       type: 'select',
-      size: '6',
+      size: {
+        xs: 6,
+      },
       options: [
         'Select',
         '1',
@@ -46,7 +45,9 @@ const props = {
     state: {
       value: 'Choose State',
       type: 'select',
-      size: '6',
+      size: {
+        xs: 6,
+      },
       options: [
         'Choose State',
         'AZ',
@@ -59,7 +60,10 @@ function validation(inputValue, inputName) {
   switch (inputName){
     case 'item':
       if(inputValue.length < 5) {
-        console.log('too short')
+        return 'error';
+      }
+      else if (inputValue.length > 5) {
+        return 'success';
       }
       break;
   }

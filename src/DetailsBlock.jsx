@@ -2,8 +2,9 @@
 *  Created by Martin Colmenero 2/27/17
 * */
 
-import React, { PropTypes, Component} from 'react'
-import styles from './static/DetailsBlock.css'
+import React, { Component} from 'react';
+import PropTypes from 'prop-types';
+import styles from './static/DetailsBlock.css';
 
 export default class DetailsBlock extends Component {
   render() {
