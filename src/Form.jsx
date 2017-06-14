@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal, Col, Row} from 'react-bootstrap/lib';
+import { Button, Col, Row} from 'react-bootstrap/lib';
 import styles from './static/Input.css';
+import { defaultButton } from './config/form';
+import noop from 'lodash/noop';
 
 export default class Form extends Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props);
     const inputObj = props.inputObject;
     const errorsObj = {};
@@ -23,36 +25,52 @@ export default class Form extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
-  }
+    this.submit = this.submit.bind(this);
+
+  }*/
   handleChange(event) {
-   const obj = Object.assign({}, this.state);
-   obj.inputObj[event.target.name].value = event.target.value;
-   this.setState({ obj });
+    this.props.handleChange(event);
+   /*const obj = Object.assign({}, this.state.inputObj);
+   obj[event.target.name].value = event.target.value;
+   this.setState({ inputObj: obj });*/
    }
-   handleFocus(event) {
-    let obj = Object.assign({}, this.state.inputObj)
+  handleFocus(event) {
+    this.props.handleFocus(event)
+    /*let obj = Object.assign({}, this.state.inputObj)
    const label = event.target.name + 'Label';
     obj[label] = styles.transform
-   this.setState({ inputObj: obj });
+   this.setState({ inputObj: obj });*/
    }
-   handleBlur(event) {
-    const name = event.target.name;
-     if(this.state.inputObj[name].value.length === 0) {
-       let obj = Object.assign({}, this.state)
+  handleBlur(event) {
+    this.props.handleBlur(event);
+    /*const name = event.target.name;
+    const { inputObj } = this.state;
+     if(inputObj[name].value.length === 0) {
+       let state = Object.assign({}, this.state);
        const label = name + 'Label';
-       obj.inputObj[label] = ''
-       const status = this.props.handleValidation(this.state.inputObj[name].value, name);
-       obj.errorsObj[name] = status;
-       this.setState({ obj });
+       state.inputObj[label] = ''
+       const status = this.props.handleValidation(inputObj[name].value, name);
+       state.errorsObj[name] = status;
+       this.setState(state);
      } else {
-       let obj = Object.assign({}, this.state)
-       const status = this.props.handleValidation(this.state.inputObj[name].value, name);
-       obj.errorsObj[name] = status;
-       this.setState({ obj });
+       let state = Object.assign({}, this.state)
+       const status = this.props.handleValidation(inputObj[name].value, name);
+       state.errorsObj[name] = status;
+       this.setState(state);*/
      }
 
+  submit() {
+    this.props.submit;
+     /*let response = {};
+     const keys = Object.keys(this.state.inputObj)
+     keys.map((key) => {
+       if(!key.includes('Label')) {
+         response[key] = this.state.inputObj[key].value;
+       }
+     });*/
    }
-  createFormInput(stateObject, key, index) {
+
+  createFormInput(stateObject, key, index, state) {
     let content;
     const {
       type,
@@ -98,8 +116,8 @@ export default class Form extends Component {
               ref={(input) => {this[`${key}_ref`] = input}}
               type="text"
               name={key}
-              className={`${className} ${this.state.errorsObj[key]}`}
-              value={this.state.inputObj[key].value}
+              className={`${className} ${state.errorsObj[key]}`}
+              value={state.inputObj[key].value}
               onChange={this.handleChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
@@ -132,10 +150,13 @@ export default class Form extends Component {
     }
     return style;
 }
+
   render() {
     const {
       formStyle,
-      inputObject
+      inputObject,
+      state,
+      Button,
     } = this.props;
 
     const inputStyles = ( formStyle && typeof formStyle === 'string')
@@ -147,16 +168,22 @@ export default class Form extends Component {
         return (key.includes('Label'))
           ? (null)
           : (
-            this.createFormInput(inputObject[key], key, index)
+            this.createFormInput(inputObject[key], key, index, state)
           );
       })
     );
+
     return(
-      <Row className={`${inputStyles}`}>
-        {
-          inputs
-        }
-      </Row>
+      <form>
+        <Row className={`${inputStyles}`}>
+          {
+            inputs
+          }
+        </Row>
+        <div className="float-r">
+          <Button onSubmit={this.submit}/>
+        </div>
+      </form>
     )
   }
 }
@@ -164,7 +191,11 @@ export default class Form extends Component {
 Form.defaultProps ={
   formStyle: false,
   inputObject: {},
-  handleValidation: () => {},
+  handleValidation: noop,
+  handleBlur: noop,
+  handleChange: noop,
+  submit: noop,
+  Button: defaultButton
 };
 
 Form.propTypes = {
