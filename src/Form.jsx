@@ -116,7 +116,7 @@ export default class Form extends Component {
     const {
       formStyle,
       inputObject,
-      errorObj,
+      errorsObj,
       Button,
     } = this.props;
 
@@ -129,7 +129,7 @@ export default class Form extends Component {
         return (key.includes('Label'))
           ? (null)
           : (
-            this.createFormInput(inputObject[key], key, index, inputObject, errorObj)
+            this.createFormInput(inputObject[key], key, index, inputObject, errorsObj)
           );
       })
     );
