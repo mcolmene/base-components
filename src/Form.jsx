@@ -84,7 +84,7 @@ export default class Form extends Component {
     size = (size) ? size : { xs: 12};
     className = (className) ? className : '';
     const {
-      inputObj
+      inputConfig
     } = this.state;
     switch(type) {
       case 'select': {
