@@ -30,49 +30,24 @@ export default class Form extends Component {
   }
   handleChange(event) {
     this.props.handleChange(event);
-   /*const obj = Object.assign({}, this.state.inputObj);
-   obj[event.target.name].value = event.target.value;
-   this.setState({ inputObj: obj });*/
-   }
+  }
   handleFocus(event) {
-    this.props.handleFocus(event)
-    /*let obj = Object.assign({}, this.state.inputObj)
-   const label = event.target.name + 'Label';
-    obj[label] = styles.transform
-   this.setState({ inputObj: obj });*/
-   }
+    this.props.handleFocus(event);
+  }
   handleBlur(event) {
     this.props.handleBlur(event);
-    /*const name = event.target.name;
-    const { inputObj } = this.state;
-     if(inputObj[name].value.length === 0) {
-       let state = Object.assign({}, this.state);
-       const label = name + 'Label';
-       state.inputObj[label] = ''
-       const status = this.props.handleValidation(inputObj[name].value, name);
-       state.errorsObj[name] = status;
-       this.setState(state);
-     } else {
-       let state = Object.assign({}, this.state)
-       const status = this.props.handleValidation(inputObj[name].value, name);
-       state.errorsObj[name] = status;
-       this.setState(state);*/
-     }
+  }
 
   submit() {
     this.props.submit;
-     /*let response = {};
-     const keys = Object.keys(this.state.inputObj)
-     keys.map((key) => {
-       if(!key.includes('Label')) {
-         response[key] = this.state.inputObj[key].value;
-       }
-     });*/
    }
 
   createFormInput(stateObject, key, index, state) {
     let content;
     const {
+      inputType,
+      title,
+      label,
       type,
       options
     } = stateObject;
@@ -84,12 +59,13 @@ export default class Form extends Component {
     size = (size) ? size : { xs: 12};
     className = (className) ? className : '';
     const inputObj = state.inputConfig;
-    switch(type) {
+    switch(inputType) {
       case 'select': {
         content = (
           <Col key={`${key}Div`} {...size} className="margin-tb-3">
             <select
               name={key}
+              title={title}
               ref={(select) => {this[`${key}_ref`] = select}}
               className={`form-control ${className}`.trim()}
               onChange={this.handleChange}
@@ -108,11 +84,12 @@ export default class Form extends Component {
       case 'input': {
         content = (
           <Col key={`${key}Div`} {...size}>
-            <label className={inputObj[`${key}Label`]}>{key}</label>
+            <label className={inputObj[`${key}Label`]}>{label}</label>
             <input
               key={`input${index}`}
               ref={(input) => {this[`${key}_ref`] = input}}
-              type="text"
+              type={type}
+              title={title}
               name={key}
               className={`${className} ${state.errorsObj[key]}`}
               value={inputObj[key].value}
