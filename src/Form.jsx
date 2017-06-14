@@ -83,9 +83,7 @@ export default class Form extends Component {
 
     size = (size) ? size : { xs: 12};
     className = (className) ? className : '';
-    const {
-      inputConfig
-    } = this.state;
+    const inputObj = state.inputConfig;
     switch(type) {
       case 'select': {
         content = (
@@ -117,7 +115,7 @@ export default class Form extends Component {
               type="text"
               name={key}
               className={`${className} ${state.errorsObj[key]}`}
-              value={state.inputConfig[key].value}
+              value={inputObj[key].value}
               onChange={this.handleChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
