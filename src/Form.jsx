@@ -8,20 +8,7 @@ import noop from 'lodash/noop';
 export default class Form extends Component {
   constructor(props) {
     super(props);
-    /*const inputObj = props.inputObject;
-    const errorsObj = {};
-    const errors = {};
-    const keys = Object.keys(props.inputObject);
-    keys.map((key) => {
-      if (!key.includes('Label')) {
-        errorsObj[key] = '';
-      }
-    })
-    this.state = {
-      inputObj,
-      errorsObj,
-      errors
-    };*/
+
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
@@ -42,7 +29,7 @@ export default class Form extends Component {
     this.props.submit;
    }
 
-  createFormInput(stateObject, key, index, state) {
+  createFormInput(stateObject, key, index, inputObj, errorsObj) {
     let content;
     const {
       inputType,
@@ -58,7 +45,6 @@ export default class Form extends Component {
 
     size = (size) ? size : { xs: 12};
     className = (className) ? className : '';
-    const inputObj = state.inputConfig;
     switch(inputType) {
       case 'select': {
         content = (
@@ -91,7 +77,7 @@ export default class Form extends Component {
               type={type}
               title={title}
               name={key}
-              className={`${className} ${state.errorsObj[key]}`}
+              className={`${className} ${errorsObj[key]}`}
               value={inputObj[key].value}
               onChange={this.handleChange}
               onFocus={this.handleFocus}
@@ -130,7 +116,7 @@ export default class Form extends Component {
     const {
       formStyle,
       inputObject,
-      state,
+      errorObj,
       Button,
     } = this.props;
 
@@ -143,7 +129,7 @@ export default class Form extends Component {
         return (key.includes('Label'))
           ? (null)
           : (
-            this.createFormInput(inputObject[key], key, index, state)
+            this.createFormInput(inputObject[key], key, index, inputObject, errorObj)
           );
       })
     );
