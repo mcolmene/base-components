@@ -6,9 +6,9 @@ import { defaultButton } from './config/form';
 import noop from 'lodash/noop';
 
 export default class Form extends Component {
-  /*constructor(props) {
+  constructor(props) {
     super(props);
-    const inputObj = props.inputObject;
+    /*const inputObj = props.inputObject;
     const errorsObj = {};
     const errors = {};
     const keys = Object.keys(props.inputObject);
@@ -21,13 +21,13 @@ export default class Form extends Component {
       inputObj,
       errorsObj,
       errors
-    };
+    };*/
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.submit = this.submit.bind(this);
 
-  }*/
+  }
   handleChange(event) {
     this.props.handleChange(event);
    /*const obj = Object.assign({}, this.state.inputObj);
@@ -117,7 +117,7 @@ export default class Form extends Component {
               type="text"
               name={key}
               className={`${className} ${state.errorsObj[key]}`}
-              value={state.inputObj[key].value}
+              value={state.inputConfig[key].value}
               onChange={this.handleChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
