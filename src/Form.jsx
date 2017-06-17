@@ -77,7 +77,7 @@ export default class Form extends Component {
               type={type}
               title={title}
               name={key}
-              className={`${className} ${errorsObj[key]}`}
+              className={`${className} ${errorsObj[key]}`.trim()}
               value={inputObj[key].value}
               onChange={this.handleChange}
               onFocus={this.handleFocus}
@@ -141,7 +141,7 @@ export default class Form extends Component {
             inputs
           }
         </Row>
-        <div className="float-r">
+        <div className="float-r margin-t-4">
           <Button onSubmit={this.submit}/>
         </div>
       </form>
