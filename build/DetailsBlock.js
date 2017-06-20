@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _DetailsBlock = require('./static/DetailsBlock.css');
 
 var _DetailsBlock2 = _interopRequireDefault(_DetailsBlock);
@@ -81,7 +85,7 @@ DetailsBlock.defaultProps = {
 };
 
 DetailsBlock.propTypes = {
-  details: _react.PropTypes.string,
-  feature: _react.PropTypes.string,
-  imageSrc: _react.PropTypes.string
+  details: _propTypes2.default.string,
+  feature: _propTypes2.default.string,
+  imageSrc: _propTypes2.default.string
 };

@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _lib = require('react-bootstrap/lib');
 
 var _ImageTextOverlay = require('./ImageTextOverlay');
@@ -68,6 +72,6 @@ ImageSection.defaultProps = {
   url: '#'
 };
 ImageSection.propTypes = {
-  topText: _react.PropTypes.string,
-  bottomText: _react.PropTypes.string
+  topText: _propTypes2.default.string,
+  bottomText: _propTypes2.default.string
 };
