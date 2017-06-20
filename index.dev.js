@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 // import ImageSection from './src/ImageSection';
 // import ImageTextOverlay from './src/ImageTextOverlay';
 // import LoadingSpinner from './src/LoadingSpinner';
-import Form from './src/Form';
+import Form from './src/composed/Form';
 
 import './src/static/global-styles.css'
 import styles from './src/static/Input.css';

@@ -1,10 +1,10 @@
 import Button from './Button';
-import DetailsBlock from './DetailsBlock';
-import Footer from './Footer';
-import ImageSection from './ImageSection';
-import ImageTextOverlay from './ImageTextOverlay';
-import LoadingSpinner from './LoadingSpinner';
-import Form from './Form';
+import DetailsBlock from './composed/DetailsBlock';
+import Footer from './composed/Footer';
+import ImageSection from './composed/ImageSection';
+import ImageTextOverlay from './composed/ImageTextOverlay';
+import LoadingSpinner from './composed/LoadingSpinner';
+import Form from './composed/Form';
 
 const components =  {
   Button,

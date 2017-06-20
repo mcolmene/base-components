@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Col, Row} from 'react-bootstrap/lib';
-import Input from './Input';
-import Dropdown from './Dropdown'
-import styles from './static/Input.css';
-import { defaultButton } from './config/form';
+import Input from '../components/Input';
+import Dropdown from '../components/Dropdown'
+import styles from '../static/Input.css';
+import { defaultButton } from '../config/form';
 import noop from 'lodash/noop';
 
 export default class Form extends Component {

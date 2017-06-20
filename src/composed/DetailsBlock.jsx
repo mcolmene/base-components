@@ -4,7 +4,7 @@
 
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
-import styles from './static/DetailsBlock.css';
+import styles from '../static/DetailsBlock.css';
 
 export default class DetailsBlock extends Component {
   render() {
