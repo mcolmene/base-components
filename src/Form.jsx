@@ -57,7 +57,7 @@ export default class Form extends Component {
             <label className={stateObject[`${key}Label`]}>{label}</label>
             <Input
               key={`input${index}`}
-              ref={(input) => {this[`${key}_ref`] = input}}
+              htmlRef={(input) => {this[`${key}_ref`] = input}}
               type={type}
               title={title}
               name={key}
@@ -97,7 +97,7 @@ export default class Form extends Component {
 }
 
   render() {
-    console.log('re rendering')
+    console.log('re rendering');
     const {
       formStyle,
       inputObject,

@@ -4,7 +4,7 @@ import noop from 'lodash/noop';
 
 export default class Input extends Component {
   constructor(props) {
-  super(props)
+  super(props);
   this.onChange = this.onChange.bind(this);
   this.onFocus = this.onFocus.bind(this);
   this.onBlur = this.onBlur.bind(this);
@@ -54,7 +54,7 @@ Input.defaultProps = {
   onChange: noop,
   onBlur: noop,
   onFocus: noop
-}
+};
 
 Input.propTypes = {
   title: PropTypes.string,

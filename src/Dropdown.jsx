@@ -59,7 +59,7 @@ Dropdown.defaultProps = {
   handleChange: noop,
   handleBlur: noop,
   handleFocus: noop
-}
+};
 
 Dropdown.propTypes = {
   title: PropTypes.string,
@@ -71,4 +71,4 @@ Dropdown.propTypes = {
   handleChange: PropTypes.func,
   handleBlur: PropTypes.func,
   handleFocus: PropTypes.func,
-}
+};
